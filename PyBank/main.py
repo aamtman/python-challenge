@@ -52,6 +52,12 @@ with open('budget_data.csv') as csvfile:
             greatest_decrease[0] = row['Date']
     revenue_average = sum(revenue_change_list)/len(revenue_change_list)
 
+     file.write("Total Months: %d\n" % total_months)
+    file.write("Total Revenue: $%d\n" % total_revenue)
+    file.write("Average Revenue Change $%d\n" % revenue_average)
+    file.write("Greatest Increase in Revenue: %s ($%s)\n" % (greatest_increase[0], greatest_increase[1]))
+    file.write("Greatest Decrease in Revenue: %s ($%s)\n" % (greatest_decrease[0], greatest_decrease[1]))
+
 #write changes to csv
 with open(csv_path, 'r') as f:
     cvs_reader=cvs.reader(f)
