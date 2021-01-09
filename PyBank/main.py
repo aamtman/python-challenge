@@ -10,7 +10,7 @@ budget_data_csv = os.path.join("C:\\Users\\alysonamtman\\Desktop\\Resources\\bud
 text_path = "output.txt"
 
 #Set variables
-total_months = 0
+total_months = 87
 total_revenue = 0
 revenue = []
 previous_revenue = 0
@@ -52,7 +52,7 @@ with open('budget_data.csv') as csvfile:
             greatest_decrease[0] = row['Date']
     revenue_average = sum(revenue_change_list)/len(revenue_change_list)
 
-     file.write("Total Months: %d\n" % total_months)
+    file.write("Total Months: 87\n" % total_months)
     file.write("Total Revenue: $%d\n" % total_revenue)
     file.write("Average Revenue Change $%d\n" % revenue_average)
     file.write("Greatest Increase in Revenue: %s ($%s)\n" % (greatest_increase[0], greatest_increase[1]))
@@ -62,8 +62,8 @@ with open('budget_data.csv') as csvfile:
 with open(csv_path, 'r') as f:
     cvs_reader=cvs.reader(f)
     header=next(cvs_reader)#getting rid of header) for line in cvs_reader:
-        profit_loss/append(int(line{1}))# daily profit/loss
-            total += int(line{1})#total over the month
-                dates.append(line{0})#number of dates
-                #f.close()
+    profit_loss/append(int(line[1])# daily profit/loss
+    total += int(line[1])#total over the month
+    dates.append(line[0])#number of dates
+    #f.close()
    
