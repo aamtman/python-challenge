@@ -6,7 +6,7 @@ import csv
 #Get current working directory
 cwkdir = os.getcwd()
 #Append file directory and make a complete file path
-filepath = os.path.join('Resources','election_data.csv')
+filepath = os.path.join('Resources/election_data.csv')
 
 #Initialize variables
 totalcount = 0; kcount = 0; ccount = 0; lcount = 0; ocount = 0; max_votecount = 0
@@ -16,8 +16,11 @@ def percentage (part, whole):
     return 100 * float(part)/float(whole)
 
 #Open and read CSV file
+outfile = open("output2.txt",'w') 
 with open(filepath) as csvfile:
      csvreader = csv.reader(csvfile, delimiter=',')
+
+ #create open input file
 
      for i in csvreader:
          voterid = i[0]
@@ -35,7 +38,7 @@ with open(filepath) as csvfile:
             lcount = lcount + 1
          if candidate =="O'Tooley":
             ocount = ocount + 1
-            
+
 # Define (dictionary) list : candidate and votes
      candidatevote = {"Khan": kcount,"Correy": ccount,"Li" :lcount, "O'Tooley": ocount}
      # Find winner 
@@ -56,3 +59,18 @@ print(f'O\'Tooley: {percentage(ocount,totalcount):.3f}%  ({ocount})')
 print(f'--------------------------------'+'\n')
 print(f'Winner: {winner} '+'\n')
 print(f'--------------------------------'+'\n')
+
+outfile.write(f'Election Results'+'\n')
+outfile.write(f'-------------------------------'+'\n')
+outfile.write(f'Total Votes: {totalcount}'+'\n')
+outfile.write(f'-------------------------------'+'\n')
+
+outfile.write(f'Khan: {percentage(kcount,totalcount):.3f}%  ({kcount})')
+outfile.write(f'Correy: {percentage(ccount,totalcount):.3f}%  ({ccount})')
+outfile.write(f'Li: {percentage(lcount,totalcount):.3f}%  ({lcount})')
+outfile.write(f'O\'Tooley: {percentage(ocount,totalcount):.3f}%  ({ocount})')
+outfile.write(f'--------------------------------'+'\n')
+outfile.write(f'Winner: {winner} '+'\n')
+outfile.write(f'--------------------------------'+'\n')
+
+outfile.close()
